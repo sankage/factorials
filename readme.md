@@ -3,7 +3,7 @@ Factorials
 
 ## DESCRIPTION
 
-For factorials of sufficient size, Javascript is unable to process them. I have written this to allow for larger factorials by using an array of single digits to represent the larger number. By running a [].join('') command on that array you can get the factorial.
+For factorials of sufficient size, Javascript is unable to process them. I have written this to allow for larger factorials by using an array of single digits to base the math on.
 
 ## USAGE
 
@@ -28,3 +28,11 @@ If you wish to see the array form of the number, call:
   6, 4, 7, 6, 8, 8, 4, 4, 3, 7, 7, 6, 4, 1, 5, 6, 8, 9, 6, 0, 5, 1, 2, 0, 0, 0, 0, 0, 0, 0, 
   0, 0, 0, 0, 0]
 ```
+
+## LIMITS
+
+Given [ECMA Section 8.5 - Numbers](http://ecma262-5.com/ELS5_HTML.htm#Section_8.5), `9007199254740992` is the maximum integer Javascript allows.
+
+As a result of this limit, this code should theoretically work up to `1000799917193443!`.
+
+Given that each iteration multiplies the array components by the next highest integer up to the desired factorial and that the highest possible multiple in the array is a single digit: 9, at the final iteration you would possibly be multiplying `1000799917193443 * 9 = 9007199254740987` at each index in the array.
